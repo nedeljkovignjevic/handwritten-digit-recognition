@@ -1,8 +1,8 @@
 # Handwritten digit recognition
-### Using simple neural network and MNIST dataset to recognize handwritten digits<br /><br />
+### Using simple neural network and MNIST dataset to recognize handwritten digits </br></br></br>
 
-## MNIST dataset<br /><br />
-
+## MNIST dataset
+![1_VAjYygFUinnygIx9eVCrQQ](https://user-images.githubusercontent.com/54076398/74888444-3ba6e700-537e-11ea-97ec-f46c84f3f317.png) </br></br>
 
 ## Requirements
 #### 1. Python 3.x 64-bit
