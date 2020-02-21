@@ -9,6 +9,7 @@ from PIL import Image
 
 
 NET = torch.load('model/model.pth')
+NET.eval()
 
 
 class Window(QMainWindow):
