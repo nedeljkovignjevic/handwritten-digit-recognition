@@ -1,5 +1,6 @@
 # Handwritten digit recognition
 Using simple neural network and MNIST dataset to recognize handwritten digits
+
 ![hdr-img](https://user-images.githubusercontent.com/54076398/74993823-8727c680-544c-11ea-96d4-c656e70c54b3.jpg) 
 </br></br>
 
