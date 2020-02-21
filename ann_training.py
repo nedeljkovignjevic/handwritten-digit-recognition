@@ -32,3 +32,18 @@ for epoch in range(n_epochs):
 
 torch.save(net, 'model/model.pth')
 
+# Testing the model
+# net = torch.load('model/model.pth')
+# net.eval()
+# correct = 0
+# total = 0
+# with torch.no_grad():
+#     for data in test_set:
+#         input, target = data
+#         output = net(input.view(-1, 784))
+#         for idx, i in enumerate(output):
+#             if torch.argmax(i) == target[idx]:
+#                 correct += 1
+#             total += 1
+#
+# print(f'Accuracy: {round(correct / total, 3)}')
