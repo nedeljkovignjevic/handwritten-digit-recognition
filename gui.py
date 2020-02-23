@@ -93,9 +93,9 @@ class Window(QMainWindow):
         ptr = image.constBits()
         arr = np.frombuffer(ptr, np.uint8).reshape((height, width, 4))
         im = Image.fromarray(arr[..., :3])
-        im.save('test.png')
+        im.save('dataset/img.png')
 
         # Evaluate net and show result
-        input_img = prepare_image('test.png')
+        input_img = prepare_image('dataset/img.png')
         prediction = torch.argmax(NET(input_img)).item()
         self.text.setText(' '+str(prediction))
