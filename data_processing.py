@@ -49,5 +49,7 @@ def prepare_image(path: str):
     pixels = list(new_image.getdata())  # get pixel values
     pixels_normalized = [(255 - x) * 1.0 / 255.0 for x in pixels]
 
-    final = np.reshape(pixels_normalized, (1, 28, 28))
-    return final
+    # Need adequate shape
+    adequate_shape = np.reshape(pixels_normalized, (1, 28, 28))
+    output = torch.FloatTensor(adequate_shape).unsqueeze(0)
+    return output

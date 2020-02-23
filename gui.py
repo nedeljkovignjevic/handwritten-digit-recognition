@@ -1,11 +1,12 @@
-from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QTextEdit
-from PySide2.QtGui import QImage, QPainter, QMouseEvent, QPen, QPaintEvent, QFont
+from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit
+from PySide2.QtGui import QImage, QPainter, QMouseEvent, QPen, QPaintEvent
 from PySide2.QtCore import Qt, QPoint
 
 from data_processing import prepare_image
+from PIL import Image
+
 import torch
 import numpy as np
-from PIL import Image
 
 
 NET = torch.load('model/model_CNN.pth')
@@ -94,8 +95,7 @@ class Window(QMainWindow):
         im = Image.fromarray(arr[..., :3])
         im.save('test.png')
 
-        # Load image, evaluate net and show result
-        img_list = prepare_image('test.png')
-        img_tensor = torch.FloatTensor(img_list).unsqueeze(0)
-        prediction = torch.argmax(NET(img_tensor)).item()
+        # Evaluate net and show result
+        input_img = prepare_image('test.png')
+        prediction = torch.argmax(NET(input_img)).item()
         self.text.setText(' '+str(prediction))
