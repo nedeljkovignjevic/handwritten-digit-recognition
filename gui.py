@@ -8,7 +8,7 @@ import numpy as np
 from PIL import Image
 
 
-NET = torch.load('model/model.pth')
+NET = torch.load('model/model_CNN.pth')
 NET.eval()
 
 
@@ -85,6 +85,7 @@ class Window(QMainWindow):
         self.text.move(266, 324)
 
     def recognize(self):
+        # Convert to image
         image = self.image.convertToFormat(QImage.Format_ARGB32)
         width = image.width()
         height = image.height()
@@ -93,7 +94,8 @@ class Window(QMainWindow):
         im = Image.fromarray(arr[..., :3])
         im.save('test.png')
 
-        img_list = prepare_image('test.png')  # file path here
-        img_tensor = torch.FloatTensor(img_list)
-        prediction = torch.argmax(NET(img_tensor.view(-1, 784))).item()
+        # Load image, evaluate net and show result
+        img_list = prepare_image('test.png')
+        img_tensor = torch.FloatTensor(img_list).unsqueeze(0)
+        prediction = torch.argmax(NET(img_tensor)).item()
         self.text.setText(' '+str(prediction))
