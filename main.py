@@ -1,4 +1,4 @@
-from src.gui import QApplication, Window
+from gui import QApplication, Window
 import sys
 
 
