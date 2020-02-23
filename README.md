@@ -19,6 +19,6 @@ Accuracy on testing data about 99%
 <br /><br />
 
 ## Comments
-2. Draw big, centered digits because that is the format of training data.
-3. Planning to collect more labeled data.
-4. GUI needs improvements.
+1. Draw big, centered digits because that is the format of training data.
+2. Planning to collect more labeled data.
+3. GUI needs improvements.
