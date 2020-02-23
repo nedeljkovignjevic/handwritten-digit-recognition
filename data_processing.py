@@ -1,6 +1,7 @@
 import torch
 from torchvision import transforms, datasets
 from PIL import Image, ImageFilter
+import numpy as np
 
 
 def get_data():
@@ -10,8 +11,8 @@ def get_data():
     test_set = datasets.MNIST('dataset', train=False, download=True,
                               transform=transforms.Compose([transforms.ToTensor()]))
 
-    train_loader = torch.utils.data.DataLoader(train_set, batch_size=10, shuffle=True)
-    test_loader = torch.utils.data.DataLoader(test_set, batch_size=10, shuffle=False)
+    train_loader = torch.utils.data.DataLoader(train_set, batch_size=64, shuffle=True)
+    test_loader = torch.utils.data.DataLoader(test_set, batch_size=1000, shuffle=True)
 
     return train_loader, test_loader
 
@@ -19,9 +20,6 @@ def get_data():
 def prepare_image(path: str):
     """
     Converting image to MNIST dataset format
-
-    Return:
-        np_arr : (list) Pixel values from 0 to 1 (0 pure white, 1 pure black)
     """
 
     im = Image.open(path).convert('L')
@@ -48,9 +46,8 @@ def prepare_image(path: str):
         wleft = int(round(((28 - nwidth) / 2), 0))  # caculate vertical pozition
         new_image.paste(img, (wleft, 4))  # paste resized image on white canvas
 
-    # newImage.save("sample.png)
     pixels = list(new_image.getdata())  # get pixel values
-
-    # normalize pixels to 0 and 1. 0 is pure white, 1 is pure black.
     pixels_normalized = [(255 - x) * 1.0 / 255.0 for x in pixels]
-    return pixels_normalized
+
+    final = np.reshape(pixels_normalized, (1, 28, 28))
+    return final
