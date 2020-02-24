@@ -5,10 +5,10 @@ import numpy as np
 
 
 def get_data():
-    train_set = datasets.MNIST('dataset', train=True, download=True,
+    train_set = datasets.MNIST('../dataset', train=True, download=True,
                                transform=transforms.Compose([transforms.ToTensor()]))
 
-    test_set = datasets.MNIST('dataset', train=False, download=True,
+    test_set = datasets.MNIST('../dataset', train=False, download=True,
                               transform=transforms.Compose([transforms.ToTensor()]))
 
     train_loader = torch.utils.data.DataLoader(train_set, batch_size=64, shuffle=True)

@@ -2,14 +2,16 @@ from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QTextEdit
 from PySide2.QtGui import QImage, QPainter, QMouseEvent, QPen, QPaintEvent
 from PySide2.QtCore import Qt, QPoint
 
-from data_processing import prepare_image
+from src.data_processing import prepare_image
+from src.net import Net
 from PIL import Image
 
 import torch
 import numpy as np
 
 
-NET = torch.load('model/model_CNN.pth')
+NET = Net()
+NET.load_state_dict(torch.load('model/model.pth'))
 NET.eval()
 
 

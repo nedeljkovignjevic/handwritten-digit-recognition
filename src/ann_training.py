@@ -8,7 +8,7 @@ train_set, test_set = get_data()
 
 net = Net()
 optimizer = optim.Adam(net.parameters(), lr=0.001)
-n_epochs = 20
+n_epochs = 25
 
 net.train()
 
@@ -29,11 +29,13 @@ for epoch in range(n_epochs):
 
     print(f'{epoch}: {full_loss / n_loss}')
 
-torch.save(net, 'model/model_CNN.pth')
+torch.save(net.state_dict(), '../model/model.pth')
 
 # Testing the model
-net = torch.load('model/model_CNN.pth')
+net = Net()
+net.load_state_dict(torch.load('../model/model.pth'))
 net.eval()
+
 correct = 0
 total = 0
 with torch.no_grad():

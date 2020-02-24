@@ -11,7 +11,7 @@ Accuracy on testing data about 99%
 </br></br>
 
 ## Requirements
-1. Python 3.x 64-bit
+1. Python 3.7 or higher 64-bit
 2. pytorch
 3. numpy
 4. PIL
