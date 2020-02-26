@@ -19,7 +19,7 @@ class Window(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setGeometry(400, 400, 400, 400)
+        self.setFixedSize(400, 400)
         self.setWindowTitle('Handwritten digit recognition')
 
         self.image = QImage(self.size(), QImage.Format_RGB32)
