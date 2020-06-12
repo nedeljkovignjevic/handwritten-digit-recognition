@@ -15,10 +15,5 @@ Accuracy on testing data about 99%
 2. pytorch
 3. numpy
 4. PIL
-5. PySide2
+5. PySide2 (PyQt)
 <br /><br />
-
-## Comments
-1. Draw big, centered digits because that is the format of training data.
-2. Planning to collect more labeled data.
-3. GUI needs improvements.
